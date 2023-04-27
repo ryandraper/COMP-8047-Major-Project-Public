@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>COMP 8047 - Decision Predictor</title>
+
+    <style>
+        fieldset {
+            margin: 1em
+        }
+        select {
+            margin: 0.5em
+        }
+        body {
+            font-family: "Helvetica", Sans-Serif;
+        }
+        .btn_container {
+            padding-left:1em;
+        }
+        #predict_btn {
+            width: 25%;
+            height: 3em;
+            font-size: 16px;
+            text-indent: 0%;
+            padding:0px;
+        }
+        legend {
+            font-weight:bold;
+        }
+        fieldset {
+            width:50%;
+        }
+
+
+    </style>
+
+    </head>
+
+    <body>
+        <h1>Decision Prediction</h1>
+        <h2>Select parameters for decision prediction below</h2>
+        <form action="" id="input-form">
+            <section>
+                <fieldset>
+                    <legend>Dispute/Case Information</legend>
+                    <table>
+                        <tr>
+                            <td>
+                                <label for="dispute_type">Dispute Type</label>
+                            </td>
+                            <td>
+                                <select name=""
+                                        id="dispute_type"
+                                        required
+                                        value="">
+                                    <option disabled selected value> -- select an option -- </option>
+                                    <option value="vehicle injury">vehicle injury</option>
+                                    <option value="employment">employment</option>
+                                    <option value="general small claim">general small claim</option>
+                                    <option value="goods or services">goods or services</option>
+                                    <option value="housing">housing</option>
+                                    <option value="loans and debts">loans and debts</option>
+                                    <option value="personal injury">personal injury</option>
+                                    <option value="property dispute">property dispute</option>
+                                    <option value="residential contruction">residential contruction</option>
+                                    <option value="strata">strata</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </table>
+                </fieldset>
+            <fieldset>
+                <legend>Applicant Information</legend>
+                <table>
+                    <tr>
+                        <td>
+                            <label for="appl_identity">Racial Identity</label>
+                        </td>
+                        <td>
+                            <select name=""
+                                    id="appl_identity"
+                                    required
+                                    value="">
+                                <option disabled selected value> -- select an option -- </option>
+                                <option value="Indiginous">Indigenous</option>
+                                <option value="White">White</option>
+                                <option value="Hispanic or Latin">Hispanic or Latin</option>
+                                <option value="Black or Caribbean">Black or Caribbean</option>
+                                <option value="Asian">Asian</option>
+                                <option value="Middle Eastern or North African">Middle Eastern or North African</option>
+                                <option value="Pacific Islander">Pacific Islander</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="appl_age_range">Age Range</label>
+                        </td>
+                        <td>
+                            <select name=""
+                                    id="appl_age_range"
+                                    required
+                                    value="">
+                                <option disabled selected value> -- select an option -- </option>
+                                <option value="19 or under">19 or under</option>
+                                <option value="20 - 34">20 - 34</option>
+                                <option value="35 - 49">35 - 49</option>
+                                <option value="50 - 64">50 - 64</option>
+                                <option value="65 and over">65 and over</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="appl_income">Income Range</label>
+                        </td>
+                        <td>
+                            <select name=""
+                                    id="appl_income"
+                                    required
+                                    value="">
+                                <option disabled selected value> -- select an option -- </option>
+                                <option value="Under 20,000">Under 20,000</option>
+                                <option value="20,000 - 39,000">20,000 - 39,000</option>
+                                <option value="40,000 - 79,000">40,000 - 79,000</option>
+                                <option value="80,000 - 99,000">80,000 - 99,000</option>
+                                <option value="100,000 or more">100,000 or more</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="appl_gender_identity">Gender Identity</label>
+                        </td>
+                        <td>
+                            <select name=""
+                                id="appl_gender_identity"
+                                required
+                                value="">
+                                <option disabled selected value> -- select an option -- </option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="LGBTQ2S+">LGBTQ2S+</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="appl_province">Province</label>
+                        </td>
+                        <td>
+                            <select name=""
+                                id="appl_province"
+                                required
+                                value="">
+                                <option disabled selected value> -- select an option -- </option>
+                                <option value="NL">NL</option>
+                                <option value="PE">PE</option>
+                                <option value="NS">NS</option>
+                                <option value="NB">NB</option>
+                                <option value="QC">QC</option>
+                                <option value="ON">ON</option>
+                                <option value="MB">MB</option>
+                                <option value="SK">SK</option>
+                                <option value="AB">AB</option>
+                                <option value="BC">BC</option>
+                                <option value="YT">YT</option>
+                                <option value="NT">NT</option>
+                                <option value="NU">NU</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="appl_has_lawyer">Has Lawyer</label>
+                        </td>
+                        <td>
+                            <select name=""
+                                id="appl_has_lawyer"
+                                required
+                                value="">
+                                <option disabled selected value> -- select an option -- </option>
+                                <option value="1">Yes</option>
+                                <option value="0">No</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+            
+
+            <fieldset>
+                <legend>Respondent Information</legend>
+                <table>
+                    <tr>
+                        <td>
+                            <label for="resp_identity">Racial Identity</label>
+                        </td>
+                        <td>
+                            <select name="" id="resp_identity" required>
+                                <option disabled selected value> -- select an option -- </option>
+                                <option value="Indiginous">Indigenous</option>
+                                <option value="White">White</option>
+                                <option value="Hispanic or Latin">Hispanic or Latin</option>
+                                <option value="Black or Caribbean">Black or Caribbean</option>
+                                <option value="Asian">Asian</option>
+                                <option value="Middle Eastern or North African">Middle Eastern or North African</option>
+                                <option value="Pacific Islander">Pacific Islander</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="resp_age_range">Age Range</label>
+                        </td>
+                        <td>
+                            <select name=""
+                                id="resp_age_range"
+                                required
+                                value="">
+                                <option disabled selected value> -- select an option -- </option>
+                                <option value="19 or under">19 or under</option>
+                                <option value="20 - 34">20 - 34</option>
+                                <option value="35 - 49">35 - 49</option>
+                                <option value="50 - 64">50 - 64</option>
+                                <option value="65 and over">65 and over</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="resp_income">Income Range</label>
+                        </td>
+                        <td>
+                            <select name=""
+                                id="resp_income"
+                                required
+                                value="">
+                                <option disabled selected value> -- select an option -- </option>
+                                <option value="Under 20,000">Under 20,000</option>
+                                <option value="20,000 - 39,000">20,000 - 39,000</option>
+                                <option value="40,000 - 79,000">40,000 - 79,000</option>
+                                <option value="80,000 - 99,000">80,000 - 99,000</option>
+                                <option value="100,000 or more">100,000 or more</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="resp_gender_identity">Gender Identity</label>
+                        </td>
+                        <td>
+                            <select name=""
+                                id="resp_gender_identity"
+                                required
+                                value="">
+                                <option disabled selected value> -- select an option -- </option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="LGBTQ2S+">LGBTQ2S+</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="resp_province">Province</label>
+                        </td>
+                        <td>
+                            <select name=""
+                                id="resp_province"
+                                required
+                                value="">
+                                <option disabled selected value> -- select an option -- </option>
+                                <option value="NL">NL</option>
+                                <option value="PE">PE</option>
+                                <option value="NS">NS</option>
+                                <option value="NB">NB</option>
+                                <option value="QC">QC</option>
+                                <option value="ON">ON</option>
+                                <option value="MB">MB</option>
+                                <option value="SK">SK</option>
+                                <option value="AB">AB</option>
+                                <option value="BC">BC</option>
+                                <option value="YT">YT</option>
+                                <option value="NT">NT</option>
+                                <option value="NU">NU</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="resp_has_lawyer">Has Lawyer</label>
+                        </td>
+                        <td>
+                            <select name=""
+                                id="resp_has_lawyer"
+                                required
+                                value="">
+                                <option disabled selected value> -- select an option -- </option>
+                                <option value="1">Yes</option>
+                                <option value="0">No</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+
+            <fieldset>
+                <legend>Judge Information</legend>
+                <table>
+                    <tr>
+                        <td>
+                            <label for="tm_identity">Racial Identity</label>
+                        </td>
+                        <td>
+                            <select name="" id="tm_identity" required>
+                                <option disabled selected value> -- select an option -- </option>
+                                <option value="Indiginous">Indigenous</option>
+                                <option value="White">White</option>
+                                <option value="Hispanic or Latin">Hispanic or Latin</option>
+                                <option value="Black or Caribbean">Black or Caribbean</option>
+                                <option value="Asian">Asian</option>
+                                <option value="Middle Eastern or North African">Middle Eastern or North African</option>
+                                <option value="Pacific Islander">Pacific Islander</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="tm_age_range">Age Range</label>
+                        </td>
+                        <td>
+                            <select name=""
+                                id="tm_age_range"
+                                required
+                                value="">
+                                <option disabled selected value> -- select an option -- </option>
+                                <option value="19 or under">19 or under</option>
+                                <option value="20 - 34">20 - 34</option>
+                                <option value="35 - 49">35 - 49</option>
+                                <option value="50 - 64">50 - 64</option>
+                                <option value="65 and over">65 and over</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="tm_gender_identity">Gender Identity</label>
+                        </td>
+                        <td>
+                            <select name=""
+                                id="tm_gender_identity"
+                                required
+                                value="">
+                                <option disabled selected value> -- select an option -- </option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="LGBTQ2S+">LGBTQ2S+</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="tm_province">Province</label>
+                        </td>
+                        <td>
+                            <select name=""
+                                id="tm_province"
+                                required
+                                value="">
+                                <option disabled selected value> -- select an option -- </option>
+                                <option value="NL">NL</option>
+                                <option value="PE">PE</option>
+                                <option value="NS">NS</option>
+                                <option value="NB">NB</option>
+                                <option value="QC">QC</option>
+                                <option value="ON">ON</option>
+                                <option value="MB">MB</option>
+                                <option value="SK">SK</option>
+                                <option value="AB">AB</option>
+                                <option value="BC">BC</option>
+                                <option value="YT">YT</option>
+                                <option value="NT">NT</option>
+                                <option value="NU">NU</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+        </section>
+
+        <section>
+            <div class="res_container">
+                <p id="res_container"></p>
+            </div>
+        </section>
+
+        <section>
+            <div class="btn_container">
+                <button id="predict_btn">Predict</button>
+            </div>
+        </section>
+    </form>
+
+        <script src="script.js"></script>
+    </body>
+</html>
