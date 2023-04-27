@@ -1,0 +1,11 @@
+# Do not include azure-functions-worker in this file
+# The Python Worker is managed by the Azure Functions platform
+# Manually managing azure-functions-worker may cause unexpected issues
+protobuf==3.20.0
+tensorflow==2.8
+azure-functions
+azure-storage-blob
+azure-storage-file-share
+pandas
+numpy
+pyodbc
