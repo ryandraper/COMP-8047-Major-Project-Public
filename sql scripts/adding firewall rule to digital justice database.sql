@@ -1,0 +1,1 @@
+EXECUTE sp_set_database_firewall_rule N'google colab','34.86.41.161','34.86.41.161'
