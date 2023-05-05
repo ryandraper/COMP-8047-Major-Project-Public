@@ -1,0 +1,18 @@
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Dispute](
+	[ID] [int] NOT NULL,
+	[Type] [varchar](200) NULL,
+	[Status] [varchar](100) NULL,
+	[CloseDate] [date] NULL,
+	[Stage] [varchar](100) NULL,
+	[Fees Collected] [int] NULL
+) ON [PRIMARY]
+GO
+ALTER TABLE [dbo].[Dispute] ADD  CONSTRAINT [PK_Dispute] PRIMARY KEY CLUSTERED 
+(
+	[ID] ASC
+)WITH (STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ONLINE = OFF, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+GO
